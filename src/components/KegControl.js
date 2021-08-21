@@ -11,7 +11,7 @@ class KegControl extends React.Component{
       formVisibleOnPage: false,
       tapData: KegData,
       selectedKeg: null,
-      kegDetailsVisibleOnPage: false
+      kegDetailsVisibleOnPage: false,
     };
   }
 
@@ -21,7 +21,7 @@ class KegControl extends React.Component{
       this.setState({
         formVisibleOnPage: false,
         selectedKeg: null,
-        kegDetailsVisibleOnPage: false
+        kegDetailsVisibleOnPage: false,
       });
     }
     else {
@@ -33,7 +33,10 @@ class KegControl extends React.Component{
 
   handleChangingSelectedKeg = (id) => {
     const selectedKeg = this.state.tapData.filter(keg => keg.id === id)[0];
-    this.setState({selectedKeg: selectedKeg});
+    this.setState({
+      selectedKeg: selectedKeg,
+    });
+    console.log(this.state.selectedKeg);
   }
 
   handleAddingNewKegToData = (newKeg) => {
@@ -42,11 +45,15 @@ class KegControl extends React.Component{
   }
 
 
-  handleBuy = (keg) => {
-    if (keg.remainingPints === 0) {
-      return;
-    }    
-    const editedKeg = {...keg, remainingPints: keg.remainingPints - 1};
+  handleBuy = (id) => {
+  const kegToEdit = this.state.tapData.filter(keg => keg.id === id)[0];
+
+  if (kegToEdit.remainingPints === 0) {
+    return;
+  }
+
+    const editedKeg = {...kegToEdit, remainingPints: kegToEdit.remainingPints - 1};
+
     // const kegToAddToCart = {...editedKeg};
     // const editedCartList = this.state.cartList.concat(kegToAddToCart);
     // // <Cart cartList = {this.state.cartList}/>
@@ -63,7 +70,8 @@ class KegControl extends React.Component{
     this.setState({
       tapData: editedKegData,
       // cartList: editedCartList,
-      selectedKeg: editedKeg,
+      selectedKeg: null,
+      editing: false
     });
   }
 
@@ -72,19 +80,30 @@ class KegControl extends React.Component{
     let buttonText = null;
 
 
-    if (this.state.selectedKeg != null){
-      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingBuy = {this.handleBuy}/>
-      buttonText = "Return to tap list";
-    }
+    // if (this.state.selectedKeg != null){
+    //   currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} availablePints = {this.getRemainingPintsText}/>
+    //   buttonText = "Return to tap list";
+    // }
 
-    else if (this.state.formVisibleOnPage){
+
+    //DONT FORGET TO CHANGE THIS BACK TO ELSE IF. YOU COMMENTED OUT THE ONE ABOVE IT SO YOU HAD TO CHANGE THIS ONE.
+
+    if (this.state.formVisibleOnPage){
       currentlyVisibleState = <NewKegForm onNewKegCreation = {this.handleAddingNewKegToData}/>
       buttonText = "Return to Keg list";
     }
 
     else{
-      currentlyVisibleState = <KegList tapData = {this.state.tapData} onKegSelection = {this.handleChangingSelectedKeg}/>;
-      buttonText = "Add Keg";
+      currentlyVisibleState = <KegList 
+      //Passing all the data
+        tapData = {this.state.tapData} 
+      //Sets the selectedKeg to the ID of the keg that is passed to it
+        onKegSelection = {this.handleChangingSelectedKeg} 
+      //Passes the current value of selectedKeg in state
+        keg = {this.state.selectedKeg} 
+      //Replaces the 'old' keg with the new edited one with the new decremented remaining pints value
+        onClickingBuy = {this.handleBuy}/>;
+        buttonText = "Add Keg";
     }
 
     return(
