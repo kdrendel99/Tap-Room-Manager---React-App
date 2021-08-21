@@ -2,8 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function KegDetail(props){
+  function availablePints(remaining){
+    if (remaining === 0){
+      return "Out of stock!";
+    }
+    else{
+      return `${remaining} Pints available`;
+    }
+  }
 
-  const { keg, availablePints} = props;
+  const { keg } = props;
 
   return(
     <React.Fragment>

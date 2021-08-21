@@ -8,16 +8,10 @@ function KegList(props){
       <hr/>
       {props.tapData.map((keg) => 
       <Keg
-
-      // Sets the selectedKeg to the ID of the keg that is passed to it
-        onKegSelection = {props.onKegSelection}
-
-      // Passes the current value of selectedKeg in state
-        keg = {props.keg} 
-
-        // Replaces the 'old' keg with the new edited one with the new decremented remaining pints value
+        // onKegSelection = {props.onKegSelection}
+        // keg = {props.keg} 
         onClickingBuy = {props.onClickingBuy}
-
+        whenKegClicked = {props.onKegSelection}
         name={keg.name}
         brand={keg.brand}
         price={keg.price}
