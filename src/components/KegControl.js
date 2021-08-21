@@ -1,37 +1,34 @@
 import React from 'react';
-import KegData from './../data/KegData';
 import NewKegForm from './NewKegForm';
 import KegList from './KegList';
 import KegDetail from './KegDetail';
+import KegData from './../data/KegData';
 
 class KegControl extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      kegDetailsVisibleOnPage: false,
       formVisibleOnPage: false,
       tapData: KegData,
-      selectedKeg: null
+      selectedKeg: null,
+      kegDetailsVisibleOnPage: false
     };
   }
 
   handleClick = () => {
+    console.log("clicked");
     if (this.state.selectedKeg != null){
       this.setState({
-        kegDetailsVisibleOnPage: false,
+        formVisibleOnPage: false,
         selectedKeg: null,
+        kegDetailsVisibleOnPage: false
       });
     }
     else {
       this.setState(prevState => ({
-        kegDetailsVisibleOnPage: !prevState.kegDetailsVisibleOnPage
+        formVisibleOnPage: !prevState.formVisibleOnPage,
       }));
     }
-  }
-
-  handleAddingNewKegToData = (newKeg) => {
-    const newTapList = this.state.tapData.concat(newKeg);
-    this.setState({tapData: newTapList, formVisibleOnPage: false})
   }
 
   handleChangingSelectedKeg = (id) => {
@@ -39,18 +36,21 @@ class KegControl extends React.Component{
     this.setState({selectedKeg: selectedKeg});
   }
 
+  handleAddingNewKegToData = (newKeg) => {
+    const newTapList = this.state.tapData.concat(newKeg);
+    this.setState({tapData: newTapList, formVisibleOnPage: false})
+  }
+
+
   handleBuy = (keg) => {
     if (keg.remainingPints === 0) {
       return;
     }    
-
     const editedKeg = {...keg, remainingPints: keg.remainingPints - 1};
-
     // const kegToAddToCart = {...editedKeg};
     // const editedCartList = this.state.cartList.concat(kegToAddToCart);
     // // <Cart cartList = {this.state.cartList}/>
     // console.log(editedCartList);
-
     const editedKegData = this.state.tapData
       .map(currentKeg => {
         if (currentKeg.id === editedKeg.id) {
@@ -60,7 +60,6 @@ class KegControl extends React.Component{
           return currentKeg;
         }
       });
-
     this.setState({
       tapData: editedKegData,
       // cartList: editedCartList,
@@ -84,7 +83,7 @@ class KegControl extends React.Component{
     }
 
     else{
-      currentlyVisibleState = <KegList tapData = {this.state.tapData} showForm = {this.handleClick} onKegSelection = {this.handleChangingSelectedKeg}/>;
+      currentlyVisibleState = <KegList tapData = {this.state.tapData} onKegSelection = {this.handleChangingSelectedKeg}/>;
       buttonText = "Add Keg";
     }
 
