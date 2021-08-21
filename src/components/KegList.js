@@ -1,6 +1,6 @@
 import React from 'react';
 import Keg from './Keg';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 function KegList(props){
   return (
@@ -8,6 +8,7 @@ function KegList(props){
       <hr/>
       {props.tapData.map((keg) => 
       <Keg
+        whenKegClicked = {props.onKegSelection}
         name={keg.name}
         brand={keg.brand}
         price={keg.price}
@@ -18,11 +19,12 @@ function KegList(props){
         key={keg.id}/>
       )}
     </React.Fragment>
-  )
+  );
 }
 
 KegList.propTypes = {
-  tapData: propTypes.array
+  tapData: PropTypes.array,
+  onKegSelection: PropTypes.func
 };
 
 export default KegList;
