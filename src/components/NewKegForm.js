@@ -1,15 +1,19 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import { v4 } from 'uuid';
+import PropTypes from "prop-types";
 
-function NewKegForm(){
+function NewKegForm(props){
   function testFormSubmission(event){
     event.preventDefault();
-    console.log(event.target.name.value);
-    console.log(event.target.brand.value);
-    console.log(event.target.price.value);
-    console.log(event.target.type.value);
-    console.log(event.target.alcoholContent.value);
-    console.log(event.target.remainingPints.value);
+    props.onNewKegCreation({
+      name: event.target.name.value,
+      brand: event.target.brand.value,
+      price: event.target.price.value,
+      type: event.target.type.value,
+      alcoholContent: event.target.alcoholContent.value,
+      remainingPints: event.target.remainingPints.value,
+      id: v4()
+    });
   }
   
   return (
@@ -46,8 +50,9 @@ function NewKegForm(){
   );
 }
 
-// NewKegForm.propTypes = {
-//   buttonText: PropTypes.string
-// };
+NewKegForm.propTypes = {
+  onNewKegCreation: PropTypes.func,
+  buttonText: PropTypes.string
+};
 
 export default NewKegForm;

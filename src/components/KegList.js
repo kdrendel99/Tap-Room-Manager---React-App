@@ -21,8 +21,6 @@ function KegList(props){
   )
 }
 
-
-
 KegList.propTypes = {
   tapData: propTypes.array
 };
