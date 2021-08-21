@@ -2,9 +2,20 @@ import React from "react";
 // import PropTypes from "prop-types";
 
 function NewKegForm(){
+  function testFormSubmission(event){
+    event.preventDefault();
+    console.log(event.target.name.value);
+    console.log(event.target.brand.value);
+    console.log(event.target.price.value);
+    console.log(event.target.type.value);
+    console.log(event.target.alcoholContent.value);
+    console.log(event.target.remainingPints.value);
+  }
+  
   return (
     <React.Fragment>
-      <form>
+      <form onSubmit = {testFormSubmission}>
+        <h2>Add a new Keg</h2>
         <input 
           type='text'
           name='name'

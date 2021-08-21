@@ -18,12 +18,21 @@ class KegControl extends React.Component{
     }));
   }
 
+  handleAddingNewKegToData = (newTicket) => {
+    console.log(newTicket);
+  }
+
+  // handleAddingNewTicketToList = (newTicket) => {
+  //   const newMasterTicketList = this.state.masterTicketList.concat(newTicket);
+  //   this.setState({masterTicketList: newMasterTicketList, formVisibleOnPage: false });
+  // }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
 
     if (this.state.formVisibleOnPage){
-      currentlyVisibleState = <NewKegForm/>
+      currentlyVisibleState = <NewKegForm testSubmit = {this.handleAddingNewKegToData}/>
       buttonText = "Return to Keg list";
     }
 
