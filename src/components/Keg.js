@@ -13,6 +13,7 @@ function Keg(props){
 
   return(
     <React.Fragment>
+      <div style={{marginLeft: "30px"}}>
         <h3>{props.name}</h3>
         <h4>{props.brand}</h4>
         <p>${props.price}</p>
@@ -23,7 +24,8 @@ function Keg(props){
         <button onClick = {() => props.whenKegClicked(props.id)}>View Details</button>
 
         <button disabled={props.remainingPints === 0 ? true : false} onClick={() => props.onClickingBuy(props.id)}>Remove one Pint</button>
-        <hr/>
+      </div>
+      <hr/>
     </React.Fragment>
   )
 }

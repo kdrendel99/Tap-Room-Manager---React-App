@@ -99,7 +99,7 @@ class KegControl extends React.Component{
     return(
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <button onClick={this.handleClick} style={{marginLeft: "30px"}}>{buttonText}</button>
       </React.Fragment>
     );
   }
