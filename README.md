@@ -29,7 +29,7 @@ This app allows for full CRUD functionality providing a manager (the user) to ad
 * _Check code for errors with `$ npm run lint`_
 
 ## Component Tree
-![Component Tree Diagram](https://github.com/kdrendel99/tap-room/tap-room/blob/main/src/img/tap-room-diagram.png)
+![Component Tree Diagram](https://github.com/kdrendel99/Tap-Room-Manager---React-App/blob/main/src/img/tap-room-diagram.png)
 
 
 ## Known Bugs <a id="bugs"></a>
