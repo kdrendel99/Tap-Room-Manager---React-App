@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Taproom Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### A React application that tracks its beers in the taproom.
 
-## Available Scripts
+#### By **Karlson Drendel**
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+* JavaScript
+* React
+* Node.js
+* npm
+* Webpack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
+This app allows for full CRUD functionality providing a manager (the user) to add, edit, delete, and view the keg data. Users can view beer details or a list of all beers at the taproom. Users can also track the number of pints sold for each beer without needing to enter into the Details page. This application was created to learn how to handle local and shared state within a React application without using hooks or libraries such as Redux. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+* [Node.js/npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup/Installation Requirements <a id="setup"></a>
 
-### `npm run build`
+* _Open terminal_
+* _Install Node [here](https://nodejs.org/en/) and npm [here](https://www.npmjs.com/).
+* _Clone this project with the following git command `$ git clone https://github.com/kdrendel99/Tap-Room-Manager---React-App.git`_
+* _install dependencies using the terminal command `$ npm install`, followed by `$ npm run build`_
+* _If you'd like to open a project live server, use the command `$ npm run start`_
+* _Check code for errors with `$ npm run lint`_
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Component Tree
+![Component Tree Diagram](https://github.com/kdrendel99/tap-room/tap-room/blob/main/src/img/tap-room-diagram.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Known Bugs <a id="bugs"></a>
+* _No known bugs!_
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## License <a id="license"></a>
+*[MIT](https://choosealicense.com/licenses/mit/)*
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Copyright (c) **_2021 Karlson Drendel_**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact Information <a id="contact"></a>
+**_Karlson Drendel kdrendel99@gmail.com_**
